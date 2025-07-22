@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T&M Bulgaria – Bewirb dich jetzt!</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+
+    header img {
+      width: 120px;
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin: 0.5rem 0 0;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 2rem auto;
+      background-color: #111;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    }
+
+    .container h2 {
+      color: #00cc66;
+      margin-bottom: 1rem;
+    }
+
+    .info {
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input, textarea, select {
+      margin-bottom: 1rem;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      background-color: #222;
+      color: #fff;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #aaa;
+    }
+
+    button {
+      padding: 1rem;
+      background: linear-gradient(90deg, #00cc66, #009933);
+      color: white;
+      border: none;
+      font-size: 1.2rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px rgba(0, 204, 102, 0.4);
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+      margin-top: 2rem;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="/mnt/data/TM_Bulgaria_25_black_ohne_Schrift 1.jpg" alt="T&M Logo" />
+  <h1>Jetzt in 2 Minuten bewerben!</h1>
+</header>
+
+<div class="container">
+  <h2>Dein Einstieg bei T&M Bulgaria</h2>
+  <div class="info">
+    Werde Teil eines starken Teams im Kundenservice – egal ob in Sofia oder remote! Nutze jetzt die Chance und sende uns deine Bewerbung in unter 2 Minuten. Einfach Formular ausfüllen und fertig!
+  </div>
+
+  <form name="tm-bewerbung" method="POST" data-netlify="true">
+    <input type="text" name="Name" placeholder="Vor- und Nachname" required />
+    <input type="email" name="Email" placeholder="E-Mail-Adresse" required />
+    <input type="tel" name="Telefon" placeholder="Telefonnummer (optional)" />
+    <select name="Standort" required>
+      <option value="">Bitte Standort wählen</option>
+      <option value="Sofia">Sofia</option>
+      <option value="Remote">Remote</option>
+    </select>
+    <textarea name="Nachricht" rows="4" placeholder="Warum du zu uns passt (optional)"></textarea>
+    <button type="submit">Jetzt bewerben ✅</button>
+  </form>
+</div>
+
+<div class="footer">
+  © 2025 T&M Bulgaria | Gemeinsam mehr erreichen.
+</div>
+
+</body>
+</html>
