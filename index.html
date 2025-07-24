@@ -3,14 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>T&M Bulgaria – Bewirb dich jetzt!</title>
+  <title>T&M Bulgaria – Jetzt bewerben!</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #000;
-      color: #fff;
       margin: 0;
       padding: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      text-align: center;
     }
 
     header {
@@ -19,53 +22,249 @@
     }
 
     header img {
-      width: 120px;
+      width: 180px;
       margin-bottom: 1rem;
     }
 
     header h1 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       margin: 0.5rem 0 0;
-      color: #fff;
+      color: #00cc66;
+    }
+
+    .countdown-animate {
+      font-size: 2.2rem;
+      color: #00cc66;
+      font-weight: bold;
+      animation: blink 1s infinite;
+    }
+
+    .countdown-animate.zoom {
+      animation: zoom 0.5s ease-in-out, blink 1s infinite;
+    }
+
+    .countdown-animate.red-blink {
+      color: red;
+      animation: redBlink 1s infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0.4; }
+    }
+
+    @keyframes redBlink {
+      0%, 100% { opacity: 1; color: red; }
+      50% { opacity: 0.4; color: #ff4444; }
+    }
+
+    @keyframes zoom {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.5); }
+      100% { transform: scale(1); }
     }
 
     .container {
-      max-width: 500px;
+      max-width: 700px;
       margin: 2rem auto;
       background-color: #111;
       padding: 2rem;
-      border-radius: 1rem;
+      border-radius: 1.2rem;
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+      animation: fadeIn 1s ease-in;
+      text-align: center;
     }
 
-    .container h2 {
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
       color: #00cc66;
       margin-bottom: 1rem;
+      font-size: 1.6rem;
+    }
+
+    .highlight {
+      color: #ff4444;
+      font-weight: bold;
     }
 
     .info {
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .taglist {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .tag {
+      background: #222;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      border: 1px solid #00cc66;
+      font-size: 0.9rem;
+    }
+    .quiz-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      text-align: left;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .quiz-button {
+      padding: 1rem;
+      background-color: #1a1a1a;
+      border: 1px solid #00cc66;
+      border-radius: 0.8rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-align: left;
+      color: #00cc66;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    .quiz-button:hover {
+      background-color: #00cc66;
+      color: #000;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .slider-container {
+      margin: 2rem 0;
+      animation: fadeIn 1s ease-in;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
+
+    .slider-container label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #00cc66;
+    }
+
+    .slider-container input[type="range"] {
+      width: 100%;
+      accent-color: #00cc66;
+      height: 14px;
+      background: #333;
+      border-radius: 7px;
+      cursor: pointer;
+    }
+
+    .slider-value {
+      text-align: right;
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 0.3rem;
+      font-weight: 600;
+      min-height: 1.4em;
+      user-select: none;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      justify-content: center;
+    }
+
+    .card-option {
+      flex: 1 1 150px;
+      padding: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+      position: relative;
+      user-select: none;
+      overflow: hidden;
+      border: 2px solid transparent;
+      color: white;
+    }
+
+    .card-option:hover {
+      transform: scale(1.05);
+    }
+
+    .card-option.red {
+      border-color: #ff4444;
+      background-color: #1a0000;
+      color: #ff4444;
+    }
+    .card-option.green {
+      border-color: #00cc66;
+      background-color: #003300;
+      color: #00cc66;
+    }
+    .card-option.blue {
+      border-color: #00ccff;
+      background-color: #001a33;
+      color: #00ccff;
+    }
+
+    .card-option.fill::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: currentColor;
+      opacity: 0.2;
+      z-index: 0;
+      animation: fillCard 1.5s forwards;
+    }
+
+    @keyframes fillCard {
+      to {
+        width: 100%;
+      }
     }
 
     form {
       display: flex;
       flex-direction: column;
+      gap: 1rem;
+      animation: fadeIn 1s ease-in;
+      margin-top: 2rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
     }
 
     input, textarea, select {
-      margin-bottom: 1rem;
-      padding: 0.8rem;
+      padding: 1rem;
       border: none;
-      border-radius: 0.5rem;
+      border-radius: 0.8rem;
       font-size: 1rem;
       background-color: #222;
       color: #fff;
+      transition: all 0.3s ease;
     }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: #aaa;
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      background-color: #2d2d2d;
+      box-shadow: 0 0 5px #00cc66;
     }
 
     button {
@@ -74,9 +273,10 @@
       color: white;
       border: none;
       font-size: 1.2rem;
-      border-radius: 0.5rem;
+      border-radius: 0.8rem;
       cursor: pointer;
       transition: transform 0.2s, box-shadow 0.3s;
+      user-select: none;
     }
 
     button:hover {
@@ -88,41 +288,345 @@
       text-align: center;
       font-size: 0.9rem;
       color: #888;
-      margin-top: 2rem;
+      margin-top: 3rem;
       padding: 1rem;
+    }
+
+    .on-site-hint {
+      background: #222;
+      color: #00cc66;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+      font-weight: bold;
+      user-select: none;
+    }
+
+    #level-feedback {
+      font-size: 1rem;
+      margin-top: 1rem;
+      color: #00cc66;
+      font-style: italic;
+      min-height: 1.5em;
+      user-select: none;
+    }
+
+    #final-button {
+      margin-top: 2rem;
+      display: none;
+      animation: fadeIn 1s ease-in;
+    }
+
+    #phoneSection {
+      font-size: 4rem;
+      color: #00cc66;
+      cursor: pointer;
+      user-select: none;
+      margin-top: 2rem;
+      animation: pulse 1.2s infinite;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    #phoneText {
+      font-size: 1.8rem;
+      color: red;
+      margin-top: 1rem;
+      margin-left: 1rem;
+      user-select: none;
+      vertical-align: middle;
+      display: none;
+    }
+
+    #phoneWrapper {
+      margin-top: 2rem;
+      text-align: center;
+      user-select: none;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: nowrap;
+      display: none;
+      display: flex;
+    }
+
+    .popup-container {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      display: none;
+      user-select: none;
+    }
+
+    .popup-card {
+      background: #111;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 15px #00cc66aa;
+      width: 50%;
+      color: white;
+      text-align: left;
+    }
+
+    .popup-card h3 {
+      margin-top: 0;
+      color: #00cc66;
+      user-select: none;
+    }
+
+    #countdownText {
+      color: red;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-top: 1.5rem;
+      user-select: none;
+    }
+
+    #subCountdownText {
+      color: #00cc66;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 0.3rem;
+      margin-bottom: 1rem;
+      user-select: none;
     }
   </style>
 </head>
 <body>
+  <header id="mainHeader">
+    <img src="https://i.imgur.com/Kp5lFns.jpeg" alt="T&M Logo" />
+    <h1>Nur <span id="countdown" class="countdown-animate">67</span> Plätze frei für September!</h1>
+    <div id="countdownText" class="hidden">Sei schnell!</div>
+    <div id="subCountdownText" class="hidden">So kannst du in 50 Sekunden einer von 5 werden:</div>
+  </header>
 
-<header>
-  <img src="/mnt/data/TM_Bulgaria_25_black_ohne_Schrift 1.jpg" alt="T&M Logo" />
-  <h1>Jetzt in 2 Minuten bewerben!</h1>
-</header>
+  <div class="container">
+    <div id="quiz" class="hidden">
+      <div class="quiz-section">
+        <div class="quiz-button" onclick="goToWelcome()">🧠 Ich bin ein Problemlöser</div>
+        <div class="quiz-button" onclick="goToWelcome()">❤️ Ich liebe es zu helfen</div>
+        <div class="quiz-button" onclick="goToWelcome()">📞 Ich kann gut mit Menschen</div>
+        <div class="quiz-button" onclick="goToWelcome()">👩‍💻 Ich will was Neues lernen</div>
+      </div>
+    </div>
 
-<div class="container">
-  <h2>Dein Einstieg bei T&M Bulgaria</h2>
-  <div class="info">
-    Werde Teil eines starken Teams im Kundenservice – egal ob in Sofia oder remote! Nutze jetzt die Chance und sende uns deine Bewerbung in unter 2 Minuten. Einfach Formular ausfüllen und fertig!
+    <div id="form-section" class="hidden">
+      <img src="https://i.imgur.com/Kp5lFns.jpeg" alt="T&M Logo" style="width:180px; margin-bottom:1rem;" />
+      <div class="info">
+        Willkommen bei <span class="highlight">T&M Bulgaria</span>!<br />
+        Wir suchen dich – freundlich, kommunikativ und motiviert.
+      </div>
+
+      <div class="on-site-hint">
+        ☕ Kaffee trinken allein zu Hause? Nicht bei uns – dein Platz ist im Team vor Ort! 🏢 + ❤️
+      </div>
+
+      <div class="cards" id="cards">
+        <div class="card-option red" onclick="selectArbeitszeit(this)">🕓 Ich will 4 Stunden</div>
+        <div class="card-option green" onclick="selectArbeitszeit(this)">🕕 Ich will 6 Stunden</div>
+        <div class="card-option blue" onclick="selectArbeitszeit(this)">🚀 Ich will Vollzeit Gas geben</div>
+      </div>
+
+      <div id="slider-area" class="slider-container hidden">
+        <label for="deutschlevel">Wie gut ist dein Deutsch?</label>
+        <input type="range" id="deutschlevel" min="1" max="5" value="3" />
+        <div class="slider-value" id="sliderValue"></div>
+        <div id="level-feedback"></div>
+      </div>
+
+  <!-- ... vorheriger Code bleibt gleich ... -->
+
+  <div id="phoneWrapper">
+    <div id="phoneSection" onclick="showFinalButton()">📞</div>
+    <div id="phoneText">Ein Anruf für dich! Willst du rangehen?</div>
   </div>
 
-  <form name="tm-bewerbung" method="POST" data-netlify="true">
-    <input type="text" name="Name" placeholder="Vor- und Nachname" required />
-    <input type="email" name="Email" placeholder="E-Mail-Adresse" required />
-    <input type="tel" name="Telefon" placeholder="Telefonnummer (optional)" />
-    <select name="Standort" required>
-      <option value="">Bitte Standort wählen</option>
-      <option value="Sofia">Sofia</option>
-      <option value="Remote">Remote</option>
-    </select>
-    <textarea name="Nachricht" rows="4" placeholder="Warum du zu uns passt (optional)"></textarea>
-    <button type="submit">Jetzt bewerben ✅</button>
-  </form>
+  <div id="final-button" class="hidden">
+    <button onclick="showContactOptions()">Wir möchten dich kennenlernen 🤝</button>
+  </div>
+
+   <div class="popup-container" id="contactOptions">
+    <div class="popup-card" id="contactCard">
+      <h3>Unsere Kontaktdaten</h3>
+      <p>Telefon: +49 123 456 7890<br />Email: info@tm-bulgaria.de</p>
+    </div>
+    <div class="popup-card">
+      <h3>Deine Kontaktdaten</h3>
+      <form name="tm-bewerbung" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="bewerbungsformular">
+        <input type="hidden" name="form-name" value="tm-bewerbung" />
+        <input type="hidden" id="arbeitszeit-hidden" name="Arbeitszeit" />
+        <input type="hidden" id="deutschlevel-hidden" name="Deutschlevel" />
+
+        <!-- Sichtbare Zusammenfassung -->
+        <input type="text" id="arbeitszeit-display" name="Gewähltes Stundenmodell" placeholder="Stundenmodell" readonly />
+        <input type="text" id="deutschlevel-display" name="Gewähltes Deutschlevel" placeholder="Deutschlevel" readonly />
+
+        <input type="text" name="Name" placeholder="Vor- und Nachname" required />
+        <input type="email" name="Email" placeholder="E-Mail-Adresse" required />
+        <input type="tel" name="Telefon" placeholder="Telefonnummer (optional)" />
+        <textarea name="Nachricht" rows="4" placeholder="Was möchtest du uns über dich erzählen? (optional)"></textarea>
+        <button type="submit">Jetzt bewerben ✅</button>
+      </form>
+    </div>
+  </div>
 </div>
 
 <div class="footer">
-  © 2025 T&M Bulgaria | Gemeinsam mehr erreichen.
+  © 2025 T&M Bulgaria | Deine Sprache. Dein Job. Deine Chance.
 </div>
+
+<script>
+  let count = 67;
+  const countdownEl = document.getElementById("countdown");
+  const countdownText = document.getElementById("countdownText");
+  const subCountdownText = document.getElementById("subCountdownText");
+  const quiz = document.getElementById("quiz");
+  const formSection = document.getElementById("form-section");
+  const sliderArea = document.getElementById("slider-area");
+  const slider = document.getElementById("deutschlevel");
+  const sliderValue = document.getElementById("sliderValue");
+  const levelFeedback = document.getElementById("level-feedback");
+  const arbeitszeitHidden = document.getElementById("arbeitszeit-hidden");
+  const deutschlevelHidden = document.getElementById("deutschlevel-hidden");
+  const arbeitszeitDisplay = document.getElementById("arbeitszeit-display");
+  const deutschlevelDisplay = document.getElementById("deutschlevel-display");
+  const phoneWrapper = document.getElementById("phoneWrapper");
+  const phoneSection = document.getElementById("phoneSection");
+  const phoneText = document.getElementById("phoneText");
+  const finalButton = document.getElementById("final-button");
+  const contactOptions = document.getElementById("contactOptions");
+  const mainHeader = document.getElementById("mainHeader");
+
+  let arbeitszeitGewählt = false;
+  let deutschGewählt = false;
+
+  function countdownStep() {
+    if (count > 5) {
+      count--;
+      countdownEl.textContent = count;
+      if (count <= 10) {
+        countdownEl.classList.add("red-blink");
+      }
+      let delay = (count <= 10) ? 500 : 40;
+      setTimeout(countdownStep, delay);
+    } else {
+      countdownEl.textContent = "5";
+      setTimeout(() => {
+        countdownText.classList.remove("hidden");
+      }, 500);
+      setTimeout(() => {
+        subCountdownText.classList.remove("hidden");
+      }, 1000);
+      setTimeout(() => {
+        quiz.classList.remove("hidden");
+      }, 1500);
+    }
+  }
+
+  function goToWelcome() {
+    quiz.classList.add("hidden");
+    mainHeader.style.display = "none";
+    formSection.classList.remove("hidden");
+  }
+
+  function selectArbeitszeit(card) {
+    if (arbeitszeitGewählt) return;
+    arbeitszeitGewählt = true;
+
+    document.querySelectorAll(".card-option").forEach((c) => {
+      c.style.pointerEvents = "none";
+      c.style.opacity = "0.5";
+      c.classList.remove("fill");
+    });
+
+    card.style.pointerEvents = "auto";
+    card.style.opacity = "1";
+    card.classList.add("fill");
+
+    arbeitszeitHidden.value = card.textContent;
+    arbeitszeitDisplay.value = card.textContent;
+
+    setTimeout(() => {
+      sliderArea.classList.remove("hidden");
+      updateSliderValue(slider.value);
+    }, 1500);
+  }
+
+  function updateSliderValue(value) {
+    let feedback = "";
+    switch (parseInt(value)) {
+      case 1: feedback = "Grundkenntnisse – Du Du brauchst noch ein bisschen Nestwärme 🐥"; break;
+      case 2: feedback = "Fortgeschritten – Nicht schlecht! bleib dran! 💪"; break;
+      case 3: feedback = "Gut – Du kannst dich sehen (und hören) lassen! 🎤"; break;
+      case 4: feedback = "Sehr gut – Du bist fast perfekt 😎"; break;
+      case 5: feedback = "🦅 Sprachadler! Wir ziehen den Hut 🎩"; break;
+    }
+
+    sliderValue.textContent = `${value} ⭐`;
+    levelFeedback.textContent = feedback;
+    deutschlevelHidden.value = value;
+    deutschlevelDisplay.value = `${value} Sterne`;
+  }
+
+  slider.addEventListener("input", (e) => {
+    updateSliderValue(e.target.value);
+    deutschGewählt = true;
+
+    if (arbeitszeitGewählt && deutschGewählt) {
+      setTimeout(() => {
+        phoneWrapper.style.display = "flex";
+        phoneSection.style.display = "inline-block";
+        phoneText.style.display = "inline-block";
+      }, 2000);
+    }
+  });
+
+  function showFinalButton() {
+    finalButton.style.display = "block";
+  }
+
+  function showContactOptions() {
+    contactOptions.style.display = "flex";
+
+    document.getElementById("bewerbungsformular").parentElement.style.display = "block";
+    document.getElementById("contactCard").style.display = "none";
+
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("bewerbungsformular");
+    const contactCard = document.getElementById("contactCard");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      form.innerHTML = `
+        <p style="font-size: 1.1rem; color: #00cc66; font-weight: 600;">
+          ✅ Danke, wir melden uns innerhalb von 24 Stunden bei dir.
+        </p>
+      `;
+
+      contactCard.style.display = "block";
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    });
+  });
+
+  phoneWrapper.style.display = "none";
+  phoneText.style.display = "none";
+
+  setTimeout(countdownStep, 40);
+</script>
 
 </body>
 </html>
