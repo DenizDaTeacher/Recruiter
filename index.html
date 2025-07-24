@@ -608,19 +608,26 @@
     const form = document.getElementById("bewerbungsformular");
     const contactCard = document.getElementById("contactCard");
 
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
+   form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-      form.innerHTML = `
-        <p style="font-size: 1.1rem; color: #00cc66; font-weight: 600;">
-          ✅ Danke, wir melden uns innerhalb von 24 Stunden bei dir.
-        </p>
-      `;
+  const formData = new FormData(form);
 
-      contactCard.style.display = "block";
-      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-    });
-  });
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString()
+  })
+  .then(() => {
+    form.innerHTML = `<p style="font-size: 1.1rem; color: #00cc66; font-weight: 600;">
+      ✅ Danke, wir melden uns innerhalb von 24 Stunden bei dir.
+    </p>`;
+    contactCard.style.display = "block";
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+  })
+  .catch((error) => alert("Fehler beim Absenden des Formulars."));
+});
+
 
   phoneWrapper.style.display = "none";
   phoneText.style.display = "none";
