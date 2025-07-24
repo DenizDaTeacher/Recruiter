@@ -604,12 +604,11 @@
     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
+ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("bewerbungsformular");
     const contactCard = document.getElementById("contactCard");
 
-
-  form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
 
       form.innerHTML = `
@@ -618,9 +617,14 @@
         </p>
       `;
 
+      contactCard.style.display = "block";
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    });
+  });
+
+  // Initiales Ausblenden & Countdown starten
   phoneWrapper.style.display = "none";
   phoneText.style.display = "none";
-
   setTimeout(countdownStep, 40);
 </script>
 
